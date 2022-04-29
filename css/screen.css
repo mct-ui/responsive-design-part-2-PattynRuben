@@ -613,37 +613,18 @@ a:focus {
     background-color: #3E3EA8;
 }
 
+
 .c-link-cta--inverse,
 .c-link-cta--inverse:visited,
-.c-link-cta--inverse:active{
+.c-link-cta--inverse:active,
+.c-link-cta--inverse:hover{
     color: #fff;
 }
 
-.c-link-cta--inverse:hover {
-    color: #fff;
-}
-
-.c-link-cta--inverse:hover::after {
-    transform: scaleX(1);
+.c-link-cta--inverse::after,
+.c-link-cta--inverse:hover::after{
     background-color: #fff;
 }
-
-.c-link-cta-inverse::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background-color: #fff;
-    transform: scaleX(0.5);
-    transform-origin: left;
-    transition-property: transform, background-color;
-    transition-duration: 0.175s;
-    transition-timing-function: ease;
-  }
-
 
 /*
     Component: footer
@@ -653,49 +634,67 @@ a:focus {
 
 .c-footer {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .c-footer__logo {
-    display: flex;
-    justify-content: center;
+    width: 100%;
 }
 
 .c-footer__nav {
-    justify-content: space-around;
+    width: 50%;
 }
-
 
 @media (min-width: 768px) {
     .c-footer {
+        justify-content: center;
         align-items: center;
-    }
-
-    .c-footer__logo {
-    }
-
-    .c-footer__nav {
-    }
-}
-
-@media (min-width: 992px) {
-    .c-footer {
-        display: flex;
     }
 
     .c-footer__logo {
         display: flex;
         justify-content: center;
-    }
-
-    .c-footer__logo .c-logo {
-        
+        padding: 0 12px;
     }
 
     .c-footer__nav {
-        display: flex;
-        justify-content: space-around;
+        width: auto;
+        padding: 0 16px;
     }
+}
+
+@media (min-width: 992px) {
+    .c-footer {
+        justify-content: space-between;
+    }
+
+    .c-footer__nav {
+        padding: 0;
+    }
+
+    .c-footer__logo + .c-footer__nav {
+        order: -1;
+    }
+
+    .c-footer__logo {
+        width: auto;
+    }
+
+    /*
+        Bonus: real centering with CSS
+        Checkout: https://css-tricks.com/centering-css-complete-guide/
+    */
+
+    /* .c-footer__logo {
+        width: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .c-footer__logo .c-logo {
+        margin-bottom: 0;
+    } */
 }
 
 /*------------------------------------*\
